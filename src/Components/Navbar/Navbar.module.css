@@ -1,0 +1,9 @@
+.navbar {
+    grid-area: navbar;
+    padding: 15px;
+    background: #313231;
+    border-radius: 10px;
+}
+.item {
+    color: blueviolet;
+}

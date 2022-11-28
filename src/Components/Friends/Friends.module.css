@@ -1,0 +1,10 @@
+.friends_block {
+    grid-area: friends;
+    background: #313231;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.friends_header {
+    color: burlywood;
+}

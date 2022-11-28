@@ -1,0 +1,10 @@
+.subscriptions_block {
+    grid-area: subscriptions;
+    background: #313231;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.subscriptions_header {
+    color: burlywood;
+}

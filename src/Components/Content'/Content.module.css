@@ -1,0 +1,10 @@
+.content {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+            'profile friends'
+            'profile subscriptions';
+    gap: 15px;
+}

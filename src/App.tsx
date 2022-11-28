@@ -1,15 +1,19 @@
 import React from 'react';
 import './App.css';
-import {Profile} from "./Profile/Profile";
-import {Header} from "./Header/Header";
-import {Navbar} from "./Navbar/Navbar";
+import {Header} from "./Components/Header/Header";
+import {Navbar} from "./Components/Navbar/Navbar";
+import {Content} from "./Components/Content'/Content";
+import {Footer} from "./Components/Footer/Footer";
 
 function App() {
     return (
         <div className="App-wrapper">
-            <Header/>
-            <Navbar/>
-            <Profile/>
+            <div className="grid_block">
+                <Header/>
+                <Navbar/>
+                <Content/>
+                {/*<Footer/>*/}
+            </div>
         </div>
     );
 }

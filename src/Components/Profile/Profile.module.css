@@ -1,0 +1,6 @@
+.profile {
+    grid-area: profile;
+    background: #313231;
+    border-radius: 10px;
+    padding: 10px;
+}
