@@ -1,8 +1,9 @@
 import React from "react";
+import './Profile.css'
 
-function Technologies() {
+export function Profile() {
     return (
-        <div>
+        <div className='content'>
             <ul>
                 <li>css</li>
                 <li>html</li>
@@ -13,4 +14,3 @@ function Technologies() {
     )
 }
 
-export default Technologies
