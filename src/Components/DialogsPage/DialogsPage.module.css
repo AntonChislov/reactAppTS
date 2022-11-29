@@ -1,0 +1,19 @@
+.dialogs_block {
+    background: #313231;
+    border-radius: 10px;
+    padding: 10px;
+    align-self: start;
+    margin-bottom: 15px;
+}
+
+.addmessage {
+    background: #313231;
+    border-radius: 10px;
+    padding: 10px;
+    align-self: start;
+    margin-bottom: 15px;
+}
+
+.item1 {
+    padding-left: 500px;
+}

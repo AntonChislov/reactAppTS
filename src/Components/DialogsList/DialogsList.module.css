@@ -10,3 +10,8 @@
     color: burlywood;
     margin-bottom: 10px;
 }
+
+.dialog_item a {
+    color: #968334;
+    text-decoration: none;
+}

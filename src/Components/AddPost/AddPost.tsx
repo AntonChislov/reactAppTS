@@ -10,7 +10,7 @@ const theme = createTheme({
             main: '#968334',
         },
     },
-});
+})
 
 export const AddPost = () => {
     return (
