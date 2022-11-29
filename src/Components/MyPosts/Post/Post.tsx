@@ -1,11 +1,14 @@
 import React from "react";
 import styles from './Post.module.css';
 
-export function Post() {
+type PostType = {
+    message: string
+}
+
+export const Post: React.FC<PostType> = ({message}) => {
     return (
         <div>
-            post 1
-            post 2
+            {message}
         </div>
     )
 }

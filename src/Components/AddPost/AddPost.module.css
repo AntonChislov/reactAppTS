@@ -1,4 +1,4 @@
-.friends_block {
+.addpost {
     background: #313231;
     border-radius: 10px;
     padding: 10px;
@@ -6,7 +6,7 @@
     margin-bottom: 15px;
 }
 
-.friends_title {
+.addpost_title {
     color: burlywood;
     margin-bottom: 10px;
 }

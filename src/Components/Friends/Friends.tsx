@@ -5,13 +5,13 @@ export function Friends() {
     return (
         <div className={styles.friends_block}>
             <div>
-                <div className={styles.friends_header}>
-                Friends
+                <div className={styles.friends_title}>
+                Друзья
                 </div>
-                <div>Adna</div>
-                <div>Mikle</div>
-                <div>Leo</div>
-                <div>Muchachos</div>
+                <div>Оля</div>
+                <div>Лена</div>
+                <div>Вова</div>
+                <div>Аркадий</div>
             </div>
         </div>
     )

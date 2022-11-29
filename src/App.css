@@ -4,9 +4,20 @@
 }
 
 .grid_block {
-    min-height: 100%;
+    min-height: 100vh;
     display: grid;
-    grid-template-columns: 150px 1fr;
+    grid-template: minmax(100px, auto) 1fr minmax(70px, auto) / 1fr;
+    grid-template-rows: 70px 1fr 50px;
+
+    grid-template-areas:
+            'header'
+            'content'
+            'footer';
+
+    margin-left: 200px;
+    margin-right: 200px;
+    gap: 15px;
+    /*grid-template-columns: 150px 1fr;
     grid-template-rows: 100px 1fr;
     grid-template-areas:
             'header header'
@@ -16,5 +27,5 @@
     margin-right: 200px;
     justify-items: auto;
     align-items: start;
-    gap: 15px;
+    gap: 15px;*/
 }

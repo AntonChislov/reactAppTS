@@ -1,15 +1,15 @@
 import React from "react";
 import styles from './Content.module.css'
-import {Friends} from "../Friends/Friends";
-import {Subscriptions} from "../Subscriptions/Subscriptions";
 import {Profile} from "../Profile/Profile";
+import {Navbar} from "../Navbar/Navbar";
+import {Rigtbar} from "../Rightbar/Rightbar";
 
 export function Content() {
     return (
         <div className={styles.content}>
+            <Navbar/>
             <Profile/>
-            <Friends/>
-            <Subscriptions/>
+            <Rigtbar/>
         </div>
     )
 }

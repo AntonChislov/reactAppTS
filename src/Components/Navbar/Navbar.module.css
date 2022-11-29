@@ -1,9 +1,11 @@
 .navbar {
     grid-area: navbar;
-    padding: 15px;
+    padding: 10px;
     background: #313231;
     border-radius: 10px;
+    align-self: start;
 }
+
 .item {
     color: blueviolet;
 }

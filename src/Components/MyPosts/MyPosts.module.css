@@ -1,8 +1,11 @@
-.profile_block {
-    margin-right: 15px;
-    grid-area: profile;
+.posts_block {
     background: #313231;
     border-radius: 10px;
-    padding-left: 15px ;
-    padding-top: 15px ;
+    padding: 10px;
+    align-self: start;
+}
+
+.posts_block_title {
+    color: burlywood;
+    margin-bottom: 10px;
 }
