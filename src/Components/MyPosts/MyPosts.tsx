@@ -1,12 +1,11 @@
 import React from "react";
 import styles from './MyPosts.module.css';
-import {Post} from "./Post/Post";
-import {AddPost} from "../AddPost/AddPost";
+import {Post} from "../Post/Post";
 
-export function MyPosts() {
+export const MyPosts = () => {
     return (
         <div>
-            <AddPost/>
+
         <div className={styles.posts_block}>
             <div className={styles.posts_block_title}>
             Мои посты

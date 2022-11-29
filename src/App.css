@@ -11,7 +11,7 @@
 
     grid-template-areas:
             'header'
-            'content'
+            'content_app'
             'footer';
 
     margin-left: 200px;

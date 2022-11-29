@@ -6,6 +6,11 @@
     align-self: start;
 }
 
-.item {
-    color: blueviolet;
+.navbar a {
+    color: #968334;
+    text-decoration: none;
+}
+
+.active {
+    color: chartreuse;
 }

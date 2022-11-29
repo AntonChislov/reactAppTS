@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './Header.module.css';
 
-export function Header() {
+export const Header = () => {
     return (
         <div>
             <div className={styles.header}>

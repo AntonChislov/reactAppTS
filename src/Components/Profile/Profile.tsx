@@ -1,8 +1,9 @@
 import React from "react";
 import styles from './Profile.module.css'
 import {MyPosts} from "../MyPosts/MyPosts";
+import {AddPost} from "../AddPost/AddPost";
 
-export function Profile() {
+export const Profile = () => {
     return (
         <div className={styles.profile_block}>
             <div className={styles.profile}>
@@ -16,7 +17,8 @@ export function Profile() {
                     Информация
                 </div>
             </div>
-                <MyPosts/>
+            <AddPost/>
+            <MyPosts/>
         </div>
     )
 }

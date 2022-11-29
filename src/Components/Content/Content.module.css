@@ -1,15 +1,12 @@
 .content {
-    grid-area: content;
+    grid-area: content_app;
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-areas:
-            'navbar profile rightbar';
+            'navbar content_page rightbar';
     gap: 15px;
-    /*display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas:
-            'profile friends'
-            'profile subscriptions';
-    gap: 15px;*/
+}
+
+.content_page {
+    grid-area: content_page;
 }

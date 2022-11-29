@@ -19,7 +19,7 @@ export const AddPost = () => {
                 Добавь пост
             </div>
             <ThemeProvider theme={theme}>
-                <TextField color={"secondary"} size={"small"}/>
+                <TextField label="Введи текст" color={"secondary"} size={"small"}/>
                 <Button color={"secondary"} size={"medium"}>Добавить</Button>
             </ThemeProvider>
         </div>
