@@ -1,0 +1,7 @@
+.content {
+    grid-area: content;
+    display: grid;
+    justify-content: start;
+    align-content: start;
+    gap: 15px;
+}

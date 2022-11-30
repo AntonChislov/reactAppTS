@@ -1,0 +1,10 @@
+.navbar {
+    grid-area: navbar;
+    font-size: 20px;
+}
+
+.navbar_block {
+    padding: 10px;
+    background: #2b2b2b;
+    border-radius: 10px;
+}
