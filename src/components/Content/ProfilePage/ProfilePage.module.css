@@ -4,3 +4,7 @@
     border-radius: 10px;
     justify-self: start;
 }
+
+.profilePage img {
+    height: 200px;
+}
