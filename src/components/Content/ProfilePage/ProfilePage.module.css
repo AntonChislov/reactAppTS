@@ -1,33 +1,5 @@
 .profilePage {
     display: grid;
     gap: 10px;
-}
-
-.profileInfo img {
-    height: 200px;
-}
-
-.profileInfo {
-    padding: 10px;
-    background: #2b2b2b;
-    border-radius: 10px;
-    justify-self: start;
-}
-
-.postsBlock {
-    padding: 10px;
-    background: #2b2b2b;
-    border-radius: 10px;
-    justify-self: start;
-
-    grid-row: 2 / 3;
-}
-
-.postsBlock_header {
-    color: burlywood;
-}
-
-.profileInfo_header {
-    color: burlywood;
-    padding-bottom: 5px;
+    /*grid-template-columns: repeat(2, 1fr);*/
 }

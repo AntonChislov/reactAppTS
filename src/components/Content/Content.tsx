@@ -1,8 +1,8 @@
 import React from "react";
 import styles from './Content.module.css'
+import {Routes, Route} from "react-router-dom";
 import {ProfilePage} from "./ProfilePage/ProfilePage";
 import {DialogsPage} from "./DialogsPage/DialogsPage";
-import {Routes, Route} from "react-router-dom";
 
 export const Content = () => {
     return (
