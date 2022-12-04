@@ -1,20 +1,18 @@
 import React from "react";
 import styles from "./DialogsList.module.css";
+import {DialogType} from "../../../../index";
 
-const dialogsData = [
-    {id: 1, dialogs: 'Анжелика'},
-    {id: 2, dialogs: 'Сюзанна'},
-    {id: 3, dialogs: 'Андрей'},
-    {id: 4, dialogs: 'Руслан'},
-    {id: 5, dialogs: 'Жанна'},
-]
+interface DialogsListType {
+    dialogsData: Array<DialogType>
+}
 
-export const DialogsList = () => {
+export const DialogsList: React.FC<DialogsListType> = ({dialogsData}) => {
 
-    const dialogsElement = dialogsData.map(item => <div key={item.id}>{item.dialogs}</div>)
+    const dialogsElement = dialogsData.map((item: DialogType) => <div key={item.id}>{item.dialogs}</div>)
 
     return (
         <div className={styles.dialogsList}>
+            <div className={styles.dialogsList_header}>Диалоги</div>
             {dialogsElement}
         </div>
     )

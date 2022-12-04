@@ -1,16 +1,6 @@
 import React from "react";
 import styles from './DialogsBlock.module.css'
-
-const incomMessagesData = [
-    {id: 4, message: 'здаров'},
-    {id: 2, message: 'все круто'},
-]
-
-const outgoMessagesData = [
-    {id: 5, message: 'привет'},
-    {id: 3, message: 'как дела?'},
-    {id: 1, message: 'харош'},
-]
+import {MessageType} from "../../../../index";
 
 const SendMessageBlock = () => {
     return (
@@ -21,9 +11,14 @@ const SendMessageBlock = () => {
     )
 }
 
-export const DialogBlock = () => {
+interface MessagesType {
+    incomeMessagesData: Array<MessageType>
+    outgoMessagesData: Array<MessageType>
+}
 
-    const incomMessageElement = incomMessagesData.map(item => <div key={item.id}
+export const DialogBlock: React.FC<MessagesType> = ({incomeMessagesData, outgoMessagesData}) => {
+
+    const incomMessageElement = incomeMessagesData.map(item => <div key={item.id}
                                                                    className={styles.item1}>{item.message}</div>)
     const outgoMessagesElement = outgoMessagesData.map(item => <div key={item.id}
                                                                     className={styles.item2}>{item.message}</div>)

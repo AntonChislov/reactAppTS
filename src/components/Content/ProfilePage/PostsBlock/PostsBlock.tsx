@@ -1,23 +1,17 @@
 import React from "react";
 import styles from './PostsBlock.module.css'
+import {PostsType} from "../../../../index";
 
-const postsData = [
-    {id: 1, text: 'учу реакт!!! летим', like: 3},
-    {id: 2, text: 'дорога возникает под ногами идущего', like: 5},
-    {id: 3, text: 'нормально делай - нормально будет', like: 2},
-    {id: 4, text: 'настроение огонь', like: 34},
-]
-
-type PostType = {
+interface PostPropsType {
     text: string
     like: number
 }
 
-const Post: React.FC<PostType> = ({text, like}) => {
+const Post: React.FC<PostPropsType> = ({text, like}) => {
     return (
         <div className={styles.post}>
             <div>{text}</div>
-            <div>лайков {like}</div>
+            <div className={styles.post_like}>лайков {like}</div>
         </div>
     )
 }
@@ -33,7 +27,11 @@ const AddPostBlock = () => {
     )
 }
 
-export const PostsBlock = () => {
+interface PostsBlockPropsType {
+    postsData: Array<PostsType>
+}
+
+export const PostsBlock: React.FC<PostsBlockPropsType> = ({postsData}) => {
 
     const postElement = postsData.map(item => <Post key={item.id} text={item.text} like={item.like}/>)
 

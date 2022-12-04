@@ -3,13 +3,16 @@ import styles from './Content.module.css'
 import {Routes, Route} from "react-router-dom";
 import {ProfilePage} from "./ProfilePage/ProfilePage";
 import {DialogsPage} from "./DialogsPage/DialogsPage";
+import {AppPropsType} from "../../App";
 
-export const Content = () => {
+export const Content: React.FC<AppPropsType> = (props) => {
     return (
         <div className={styles.content}>
             <Routes>
-                <Route path='/' element={<ProfilePage/>} />
-                <Route path='dialogs' element={<DialogsPage/>} />
+                <Route path='/' element={<ProfilePage postsData={props.postsData}/>}/>
+                <Route path='dialogs/*' element={<DialogsPage dialogsData={props.dialogsData}
+                                                            incomeMessagesData={props.incomeMessagesData}
+                                                            outgoMessagesData={props.outgoMessagesData}/>}/>
             </Routes>
         </div>
     )
