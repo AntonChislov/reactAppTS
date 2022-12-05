@@ -1,29 +1,35 @@
-
 export interface PostsType {
     id: number
     text: string
     like: number
 }
 
-const postsData: Array<PostsType> =
-
 export interface MessageType {
     id: number
     message: string
 }
-
-const
-
-const
 
 export interface DialogType {
     id: number
     dialogs: string
 }
 
-const
+interface ProfilePageDataType {
+    postsData: Array<PostsType>
+}
 
-const state = {
+interface DialogsPageDataType {
+    incomeMessagesData: Array<MessageType>
+    outgoMessagesData: Array<MessageType>
+    dialogsData: Array<DialogType>
+}
+
+interface StateType {
+    profilePageData: ProfilePageDataType
+    dialogsPageData: DialogsPageDataType
+}
+
+export const state: StateType = {
     profilePageData: {
         postsData: [
             {id: 1, text: 'учу реакт!!! летим', like: 3},

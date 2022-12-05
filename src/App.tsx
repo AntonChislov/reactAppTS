@@ -4,7 +4,7 @@ import {Header} from "./Components/Header/Header";
 import {Navbar} from "./Components/Navbar/Navbar";
 import {Content} from "./Components/Content/Content";
 import {Footer} from "./Components/Footer/Footer";
-import {DialogType, MessageType, PostsType} from "./index";
+import {DialogType, MessageType, PostsType} from '../src/state';
 
 export interface AppPropsType {
     incomeMessagesData: Array<MessageType>
