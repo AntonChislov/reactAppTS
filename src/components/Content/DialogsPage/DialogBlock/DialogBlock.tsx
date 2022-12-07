@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './DialogsBlock.module.css'
-import {MessageType} from "../../../../index";
+import {MessageType} from "../../../../state";
 
 const SendMessageBlock = () => {
     return (

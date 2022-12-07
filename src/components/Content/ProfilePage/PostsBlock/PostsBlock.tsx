@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './PostsBlock.module.css'
-import {PostsType} from "../../../../index";
+import {PostsType} from "../../../../state";
 
 interface PostPropsType {
     text: string
