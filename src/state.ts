@@ -24,7 +24,7 @@ interface DialogsPageDataType {
     dialogsData: Array<DialogType>
 }
 
-interface StateType {
+export interface StateType {
     profilePageData: ProfilePageDataType
     dialogsPageData: DialogsPageDataType
 }

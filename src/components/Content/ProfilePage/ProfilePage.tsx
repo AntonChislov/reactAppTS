@@ -8,7 +8,7 @@ interface ProfilePagePropsType {
     postsData: Array<PostsType>
 }
 
-export const ProfilePage: React.FC<ProfilePagePropsType> = ({postsData}) => {
+function ProfilePage({postsData}: ProfilePagePropsType) {
     return (
         <div className={styles.profilePage}>
             <ProfileInfo/>
@@ -16,3 +16,5 @@ export const ProfilePage: React.FC<ProfilePagePropsType> = ({postsData}) => {
         </div>
     )
 }
+
+export {ProfilePage}

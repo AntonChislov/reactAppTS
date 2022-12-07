@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './Header.module.css';
 
-export const Header = () => {
+function Header() {
     return (
         <div>
             <div className={styles.header}>
@@ -11,3 +11,5 @@ export const Header = () => {
         </div>
     )
 }
+
+export {Header}

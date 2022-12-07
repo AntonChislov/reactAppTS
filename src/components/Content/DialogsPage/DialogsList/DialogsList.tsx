@@ -6,7 +6,7 @@ interface DialogsListType {
     dialogsData: Array<DialogType>
 }
 
-export const DialogsList: React.FC<DialogsListType> = ({dialogsData}) => {
+function DialogsList({dialogsData}: DialogsListType) {
 
     const dialogsElement = dialogsData.map((item: DialogType) => <div key={item.id}>{item.dialogs}</div>)
 
@@ -17,3 +17,5 @@ export const DialogsList: React.FC<DialogsListType> = ({dialogsData}) => {
         </div>
     )
 }
+
+export {DialogsList}

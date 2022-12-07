@@ -7,7 +7,7 @@ interface PostPropsType {
     like: number
 }
 
-const Post: React.FC<PostPropsType> = ({text, like}) => {
+function Post({text, like}: PostPropsType) {
     return (
         <div className={styles.post}>
             <div>{text}</div>
@@ -16,7 +16,7 @@ const Post: React.FC<PostPropsType> = ({text, like}) => {
     )
 }
 
-const AddPostBlock = () => {
+function AddPostBlock() {
     return (
         <div className={styles.addPostBlock}>
             <div>
@@ -31,7 +31,7 @@ interface PostsBlockPropsType {
     postsData: Array<PostsType>
 }
 
-export const PostsBlock: React.FC<PostsBlockPropsType> = ({postsData}) => {
+function PostsBlock({postsData}: PostsBlockPropsType) {
 
     const postElement = postsData.map(item => <Post key={item.id} text={item.text} like={item.like}/>)
 
@@ -45,3 +45,5 @@ export const PostsBlock: React.FC<PostsBlockPropsType> = ({postsData}) => {
         </div>
     )
 }
+
+export {PostsBlock}

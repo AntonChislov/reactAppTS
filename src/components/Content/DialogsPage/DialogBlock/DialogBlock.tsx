@@ -2,7 +2,7 @@ import React from "react";
 import styles from './DialogsBlock.module.css'
 import {MessageType} from "../../../../state";
 
-const SendMessageBlock = () => {
+function SendMessageBlock() {
     return (
         <div className={styles.sendMessagesBlock}>
             <input placeholder={'введи сообщение'}/>
@@ -16,7 +16,7 @@ interface MessagesType {
     outgoMessagesData: Array<MessageType>
 }
 
-export const DialogBlock: React.FC<MessagesType> = ({incomeMessagesData, outgoMessagesData}) => {
+function DialogBlock({incomeMessagesData, outgoMessagesData}: MessagesType) {
 
     const incomMessageElement = incomeMessagesData.map(item => <div key={item.id}
                                                                    className={styles.item1}>{item.message}</div>)
@@ -41,3 +41,5 @@ export const DialogBlock: React.FC<MessagesType> = ({incomeMessagesData, outgoMe
         </div>
     )
 }
+
+export {DialogBlock}

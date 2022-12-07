@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './ProfileInfo.module.css'
 
-export const ProfileInfo = () => {
+function ProfileInfo() {
     return (
         <div className={styles.profileInfo}>
             <div className={styles.profileInfo_header}>Профиль</div>
@@ -16,3 +16,5 @@ export const ProfileInfo = () => {
         </div>
     )
 }
+
+export {ProfileInfo}

@@ -4,7 +4,7 @@ import {Header} from "./Components/Header/Header";
 import {Navbar} from "./Components/Navbar/Navbar";
 import {Content} from "./Components/Content/Content";
 import {Footer} from "./Components/Footer/Footer";
-import {DialogType, MessageType, PostsType} from '../src/state';
+import {DialogType, MessageType, PostsType} from './state';
 
 export interface AppPropsType {
     incomeMessagesData: Array<MessageType>
@@ -13,7 +13,7 @@ export interface AppPropsType {
     postsData: Array<PostsType>
 }
 
-const App: React.FC<AppPropsType> = (props) => {
+function App(props: AppPropsType) {
     return (
         <div className="App-wrapper">
             <Header/>
@@ -24,4 +24,4 @@ const App: React.FC<AppPropsType> = (props) => {
     );
 }
 
-export default App;
+export {App};

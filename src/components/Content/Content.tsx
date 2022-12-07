@@ -5,7 +5,7 @@ import {ProfilePage} from "./ProfilePage/ProfilePage";
 import {DialogsPage} from "./DialogsPage/DialogsPage";
 import {AppPropsType} from "../../App";
 
-export const Content: React.FC<AppPropsType> = (props) => {
+function Content(props: AppPropsType) {
     return (
         <div className={styles.content}>
             <Routes>
@@ -17,3 +17,5 @@ export const Content: React.FC<AppPropsType> = (props) => {
         </div>
     )
 }
+
+export {Content}

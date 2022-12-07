@@ -10,7 +10,7 @@ interface DialogsPagePropsType {
     dialogsData: Array<DialogType>
 }
 
-export const DialogsPage: React.FC<DialogsPagePropsType> = ({incomeMessagesData, outgoMessagesData, dialogsData}) => {
+function DialogsPage({incomeMessagesData, outgoMessagesData, dialogsData}: DialogsPagePropsType) {
     return (
         <div className={styles.dialogsPage}>
             <DialogBlock incomeMessagesData={incomeMessagesData}
@@ -19,3 +19,5 @@ export const DialogsPage: React.FC<DialogsPagePropsType> = ({incomeMessagesData,
         </div>
     )
 }
+
+export {DialogsPage}
