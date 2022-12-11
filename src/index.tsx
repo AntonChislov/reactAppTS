@@ -4,21 +4,26 @@ import './index.css';
 import {App} from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
-import {state} from '../src/state'
+import {store} from './state'
 
-const root = ReactDOM.createRoot(
-    document.getElementById('root') as HTMLElement
-);
-root.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <App dialogsData={state.dialogsPageData.dialogsData}
-                 outgoMessagesData={state.dialogsPageData.outgoMessagesData}
-                 incomeMessagesData={state.dialogsPageData.incomeMessagesData}
-                 postsData={state.profilePageData.postsData}/>
-        </BrowserRouter>
-    </React.StrictMode>
-);
+export const renderAll = () => {
+    const root = ReactDOM.createRoot(
+        document.getElementById('root') as HTMLElement
+    );
+    root.render(
+        <React.StrictMode>
+            <BrowserRouter>
+                <App dialogsPageData={store.getState().dialogsPageData}
+                     profilePageData={store.getState().profilePageData}
+                     dispatch={store.dispatch.bind(store)}/>
+            </BrowserRouter>
+        </React.StrictMode>
+    );
+}
+
+renderAll()
+
+store._subscribe(renderAll)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

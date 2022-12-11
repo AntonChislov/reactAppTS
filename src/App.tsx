@@ -4,13 +4,12 @@ import {Header} from "./Components/Header/Header";
 import {Navbar} from "./Components/Navbar/Navbar";
 import {Content} from "./Components/Content/Content";
 import {Footer} from "./Components/Footer/Footer";
-import {DialogType, MessageType, PostsType} from './state';
+import {DialogsPageDataType, ProfilePageDataType} from './state';
 
 export interface AppPropsType {
-    incomeMessagesData: Array<MessageType>
-    outgoMessagesData: Array<MessageType>
-    dialogsData: Array<DialogType>
-    postsData: Array<PostsType>
+    dialogsPageData: DialogsPageDataType
+    profilePageData: ProfilePageDataType
+    dispatch: (action: any) => void
 }
 
 function App(props: AppPropsType) {
