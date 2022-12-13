@@ -2,20 +2,18 @@ import React from "react";
 import styles from './DialogsPage.module.css'
 import {DialogBlock} from "./DialogBlock/DialogBlock";
 import {DialogsList} from "./DialogsList/DialogsList";
-import {DialogType, MessageType} from "../../../state";
+import {DialogsPageDataType, DialogType, MessageType} from "../../../state";
 
 interface DialogsPagePropsType {
-    incomeMessagesData: Array<MessageType>
-    outgoMessagesData: Array<MessageType>
-    dialogsData: Array<DialogType>
+    dialogsPageData: DialogsPageDataType
 }
 
-function DialogsPage({incomeMessagesData, outgoMessagesData, dialogsData}: DialogsPagePropsType) {
+function DialogsPage({dialogsPageData}: DialogsPagePropsType) {
     return (
         <div className={styles.dialogsPage}>
-            <DialogBlock incomeMessagesData={incomeMessagesData}
-                         outgoMessagesData={outgoMessagesData}/>
-            <DialogsList dialogsData={dialogsData}/>
+            <DialogBlock incomeMessagesData={dialogsPageData.incomeMessagesData}
+                         outgoMessagesData={dialogsPageData.outgoMessagesData}/>
+            <DialogsList dialogsData={dialogsPageData.dialogsData}/>
         </div>
     )
 }

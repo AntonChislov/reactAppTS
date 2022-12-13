@@ -1,10 +1,20 @@
 import React from "react";
 import styles from './PostsBlock.module.css'
-import {PostsType} from "../../../../state";
+import {ProfilePageDataType} from "../../../../state";
 
 interface PostPropsType {
     text: string
     like: number
+}
+
+interface PostsBlockPropsType {
+    profilePageData: ProfilePageDataType
+    dispatch: (action: any) => void
+}
+
+interface AddPostBlockType {
+    textInput: string
+    dispatch: (action: any) => void
 }
 
 function Post({text, like}: PostPropsType) {
@@ -16,32 +26,39 @@ function Post({text, like}: PostPropsType) {
     )
 }
 
-function AddPostBlock() {
+function AddPostBlock({textInput, dispatch}: AddPostBlockType) {
+
+    const ref = React.useRef<HTMLInputElement | null>(null)
+
+    const addPostButton = () => {
+        if (ref.current)
+            dispatch({type: 'ADD-POST'})
+    }
+
+    const onPostChange = () => {
+        if (ref.current)
+            dispatch({type: 'UPDATE-NEW-POST-TEXT', currentValueInput: ref.current.value})
+    }
+
     return (
         <div className={styles.addPostBlock}>
             <div>
-                <input placeholder={'введи текст'}/>
-                <button>добавить</button>
+                <input autoFocus={true} value={textInput} onChange={onPostChange} ref={ref} placeholder={'введи текст'}/>
+                <button onClick={addPostButton}>добавить</button>
             </div>
         </div>
     )
 }
 
-interface PostsBlockPropsType {
-    postsData: Array<PostsType>
-}
-
-function PostsBlock({postsData}: PostsBlockPropsType) {
-
-    const postElement = postsData.map(item => <Post key={item.id} text={item.text} like={item.like}/>)
+function PostsBlock({profilePageData, dispatch}: PostsBlockPropsType) {
 
     return (
         <div className={styles.postsBlock}>
             <div className={styles.posts}>
                 <div className={styles.postsBlock_header}>Посты</div>
-                {postElement}
+                {profilePageData.postsData.map(item => <Post key={item.id} text={item.text} like={item.like}/>)}
             </div>
-            <AddPostBlock/>
+            <AddPostBlock dispatch={dispatch} textInput={profilePageData.textInput}/>
         </div>
     )
 }

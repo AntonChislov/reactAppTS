@@ -2,17 +2,19 @@ import React from "react";
 import styles from './ProfilePage.module.css'
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {PostsBlock} from "./PostsBlock/PostsBlock";
-import {PostsType} from "../../../state";
+import {ProfilePageDataType} from "../../../state";
 
 interface ProfilePagePropsType {
-    postsData: Array<PostsType>
+    profilePageData: ProfilePageDataType
+    dispatch: (action: any) => void
 }
 
-function ProfilePage({postsData}: ProfilePagePropsType) {
+function ProfilePage({profilePageData, dispatch}: ProfilePagePropsType) {
     return (
         <div className={styles.profilePage}>
             <ProfileInfo/>
-            <PostsBlock postsData={postsData}/>
+            <PostsBlock profilePageData={profilePageData}
+                        dispatch={dispatch}/>
         </div>
     )
 }

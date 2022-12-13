@@ -3,10 +3,19 @@ import styles from './DialogsBlock.module.css'
 import {MessageType} from "../../../../state";
 
 function SendMessageBlock() {
+
+    const ref = React.createRef<HTMLInputElement>()
+
+    const addMessage = () => {
+        if (ref.current) {
+            alert(ref.current.value)
+        }
+    }
+
     return (
         <div className={styles.sendMessagesBlock}>
-            <input placeholder={'введи сообщение'}/>
-            <button>отправить</button>
+            <input ref={ref} placeholder={'введи сообщение'}/>
+            <button onClick={addMessage}>отправить</button>
         </div>
     )
 }
@@ -18,18 +27,18 @@ interface MessagesType {
 
 function DialogBlock({incomeMessagesData, outgoMessagesData}: MessagesType) {
 
-    const incomMessageElement = incomeMessagesData.map(item => <div key={item.id}
+    const incomeMessageElement = incomeMessagesData.map(item => <div key={item.id}
                                                                    className={styles.item1}>{item.message}</div>)
     const outgoMessagesElement = outgoMessagesData.map(item => <div key={item.id}
                                                                     className={styles.item2}>{item.message}</div>)
 
     const messageList = []
 
-    const largerArray = incomMessageElement.length > outgoMessagesElement.length ? incomMessageElement.length : outgoMessagesElement.length
+    const largerArray = incomeMessageElement.length > outgoMessagesElement.length ? incomeMessageElement.length : outgoMessagesElement.length
 
     for (let i = 0; i < largerArray; i++) {
         messageList.push(outgoMessagesElement[i])
-        messageList.push(incomMessageElement[i])
+        messageList.push(incomeMessageElement[i])
     }
 
     return (

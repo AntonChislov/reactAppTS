@@ -29,6 +29,11 @@ export interface DialogsPageDataType {
     dialogsData: Array<DialogType>
 }
 
+export interface ActionType {
+    type: string
+    currentValueInput: string
+}
+
 export const store = {
     _state: {
         profilePageData: {
@@ -65,11 +70,11 @@ export const store = {
     _subscribe(observer: () => void) {
         renderAll = observer
     },
-    dispatch(action: any) {
+    dispatch(action: ActionType) {
         if (action.type === 'ADD-POST') {
             let newPost = {
                 id: 5,
-                text: action.postText,
+                text: this._state.profilePageData.textInput,
                 like: 0
             }
             this._state.profilePageData.postsData.push(newPost)
