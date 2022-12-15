@@ -1,3 +1,7 @@
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+
+
 let renderAll = () => {
     console.log('Hello World!')
 }
@@ -71,7 +75,7 @@ export const store = {
         renderAll = observer
     },
     dispatch(action: ActionType) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 5,
                 text: this._state.profilePageData.textInput,
@@ -80,9 +84,17 @@ export const store = {
             this._state.profilePageData.postsData.push(newPost)
             this._state.profilePageData.textInput = ''
             renderAll()
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePageData.textInput = action.currentValueInput
             renderAll()
         }
     }
+}
+
+export const addPostButtonActionCreator = () => {
+        return {type: ADD_POST}
+}
+
+export const onPostChangeActionCreator = (currentValueInput: string) => {
+        return {type: UPDATE_NEW_POST_TEXT, currentValueInput}
 }
