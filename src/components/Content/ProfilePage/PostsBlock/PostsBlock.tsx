@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './PostsBlock.module.css'
-import {ProfilePageDataType} from "../../../../state";
+import {addPostButtonActionCreator, onPostChangeActionCreator, ProfilePageDataType} from "../../../../state";
 
 interface PostPropsType {
     text: string
@@ -31,13 +31,11 @@ function AddPostBlock({textInput, dispatch}: AddPostBlockType) {
     const ref = React.useRef<HTMLInputElement | null>(null)
 
     const addPostButton = () => {
-        if (ref.current)
-            dispatch({type: 'ADD-POST'})
+            dispatch(addPostButtonActionCreator())
     }
 
     const onPostChange = () => {
-        if (ref.current)
-            dispatch({type: 'UPDATE-NEW-POST-TEXT', currentValueInput: ref.current.value})
+            if(ref.current) dispatch(onPostChangeActionCreator(ref.current.value))
     }
 
     return (
