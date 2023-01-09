@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './PostsBlock.module.css'
-import {addPostButtonActionCreator, onPostChangeActionCreator, ProfilePageDataType} from "../../../../state";
+import {addPostButtonActionCreator, onPostChangeActionCreator} from "../../../../redux/profile-reducer";
+import {ProfilePageDataType} from '../../../../redux/state'
 
 interface PostPropsType {
     text: string

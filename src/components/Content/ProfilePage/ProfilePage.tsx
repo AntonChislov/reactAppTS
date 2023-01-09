@@ -2,7 +2,7 @@ import React from "react";
 import styles from './ProfilePage.module.css'
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {PostsBlock} from "./PostsBlock/PostsBlock";
-import {ProfilePageDataType} from "../../../state";
+import {ProfilePageDataType} from "../../../redux/state";
 
 interface ProfilePagePropsType {
     profilePageData: ProfilePageDataType

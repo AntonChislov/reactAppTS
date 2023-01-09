@@ -1,5 +1,5 @@
-const ADD_POST = 'ADD-POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+import {profileReducer} from "./profile-reducer";
+import {dialogsReducer} from "./dialogs-reducer";
 
 
 let renderAll = () => {
@@ -36,6 +36,7 @@ export interface DialogsPageDataType {
 export interface ActionType {
     type: string
     currentValueInput: string
+    text: string
 }
 
 export const store = {
@@ -75,26 +76,8 @@ export const store = {
         renderAll = observer
     },
     dispatch(action: ActionType) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                text: this._state.profilePageData.textInput,
-                like: 0
-            }
-            this._state.profilePageData.postsData.push(newPost)
-            this._state.profilePageData.textInput = ''
+        profileReducer(this._state.profilePageData, action)
+        dialogsReducer(this._state.dialogsPageData, action)
             renderAll()
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePageData.textInput = action.currentValueInput
-            renderAll()
-        }
     }
-}
-
-export const addPostButtonActionCreator = () => {
-        return {type: ADD_POST}
-}
-
-export const onPostChangeActionCreator = (currentValueInput: string) => {
-        return {type: UPDATE_NEW_POST_TEXT, currentValueInput}
 }

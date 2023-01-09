@@ -4,7 +4,7 @@ import {Header} from "./Components/Header/Header";
 import {Navbar} from "./Components/Navbar/Navbar";
 import {Content} from "./Components/Content/Content";
 import {Footer} from "./Components/Footer/Footer";
-import {DialogsPageDataType, ProfilePageDataType} from './state';
+import {DialogsPageDataType, ProfilePageDataType} from './redux/state';
 
 export interface AppPropsType {
     dialogsPageData: DialogsPageDataType

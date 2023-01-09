@@ -1,14 +1,20 @@
-import React from "react";
+import React, {FC} from "react";
 import styles from './DialogsBlock.module.css'
-import {MessageType} from "../../../../state";
+import {addMessageActionCreator} from "../../../../redux/dialogs-reducer";
+import {MessageType} from "../../../../redux/state";
 
-function SendMessageBlock() {
+type AddMessageProps = {
+    dispatch: (action: any) => void
+}
+
+const SendMessageBlock:FC<AddMessageProps> = ({dispatch}) => {
 
     const ref = React.createRef<HTMLInputElement>()
 
     const addMessage = () => {
+
         if (ref.current) {
-            alert(ref.current.value)
+            dispatch(addMessageActionCreator(ref.current.value))
         }
     }
 
@@ -23,9 +29,10 @@ function SendMessageBlock() {
 interface MessagesType {
     incomeMessagesData: Array<MessageType>
     outgoMessagesData: Array<MessageType>
+    dispatch: (action: any) => void
 }
 
-function DialogBlock({incomeMessagesData, outgoMessagesData}: MessagesType) {
+function DialogBlock({incomeMessagesData, outgoMessagesData, dispatch}: MessagesType) {
 
     const incomeMessageElement = incomeMessagesData.map(item => <div key={item.id}
                                                                    className={styles.item1}>{item.message}</div>)
@@ -46,7 +53,7 @@ function DialogBlock({incomeMessagesData, outgoMessagesData}: MessagesType) {
             <div className={styles.messagesBlock}>
                 {messageList}
             </div>
-            <SendMessageBlock/>
+            <SendMessageBlock dispatch={dispatch}/>
         </div>
     )
 }
