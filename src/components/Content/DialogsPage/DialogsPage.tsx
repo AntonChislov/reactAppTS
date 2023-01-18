@@ -3,6 +3,7 @@ import styles from './DialogsPage.module.css'
 import {DialogBlock} from "./DialogBlock/DialogBlock";
 import {DialogsList} from "./DialogsList/DialogsList";
 import {DialogsPageDataType, DialogType, MessageType} from "../../../redux/state";
+import {DialogBlockContainer} from "./DialogBlock/DialogBlockContainer";
 
 interface DialogsPagePropsType {
     dialogsPageData: DialogsPageDataType
@@ -12,7 +13,7 @@ interface DialogsPagePropsType {
 function DialogsPage({dialogsPageData, dispatch}: DialogsPagePropsType) {
     return (
         <div className={styles.dialogsPage}>
-            <DialogBlock incomeMessagesData={dialogsPageData.incomeMessagesData}
+            <DialogBlockContainer incomeMessagesData={dialogsPageData.incomeMessagesData}
                          outgoMessagesData={dialogsPageData.outgoMessagesData}
                         dispatch={dispatch}/>
             <DialogsList dialogsData={dialogsPageData.dialogsData}/>

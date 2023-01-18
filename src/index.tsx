@@ -4,7 +4,7 @@ import './index.css';
 import {App} from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
-import {store} from './redux/state'
+import {store} from './redux/redux-store'
 
 export const renderAll = () => {
     const root = ReactDOM.createRoot(
@@ -13,8 +13,8 @@ export const renderAll = () => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App dialogsPageData={store.getState().dialogsPageData}
-                     profilePageData={store.getState().profilePageData}
+                <App dialogsPageData={store.getState().dialogsPage}
+                     profilePageData={store.getState().profilePage}
                      dispatch={store.dispatch.bind(store)}/>
             </BrowserRouter>
         </React.StrictMode>
@@ -23,7 +23,7 @@ export const renderAll = () => {
 
 renderAll()
 
-store._subscribe(renderAll)
+store.subscribe(renderAll)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

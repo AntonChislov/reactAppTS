@@ -1,6 +1,5 @@
 import React from "react";
 import styles from './PostsBlock.module.css'
-import {addPostButtonActionCreator, onPostChangeActionCreator} from "../../../../redux/profile-reducer";
 import {ProfilePageDataType} from '../../../../redux/state'
 
 interface PostPropsType {
@@ -10,12 +9,14 @@ interface PostPropsType {
 
 interface PostsBlockPropsType {
     profilePageData: ProfilePageDataType
-    dispatch: (action: any) => void
+    onAddPost: () => void
+    onPostChange: (text: string) => void
 }
 
 interface AddPostBlockType {
     textInput: string
-    dispatch: (action: any) => void
+    onAddPost: () => void
+    postChange: (value: string) => void
 }
 
 function Post({text, like}: PostPropsType) {
@@ -27,16 +28,16 @@ function Post({text, like}: PostPropsType) {
     )
 }
 
-function AddPostBlock({textInput, dispatch}: AddPostBlockType) {
+function AddPostBlock({textInput, onAddPost, postChange}: AddPostBlockType) {
 
     const ref = React.useRef<HTMLInputElement | null>(null)
 
     const addPostButton = () => {
-            dispatch(addPostButtonActionCreator())
+        onAddPost()
     }
 
     const onPostChange = () => {
-            if(ref.current) dispatch(onPostChangeActionCreator(ref.current.value))
+            if(ref.current) postChange(ref.current.value)
     }
 
     return (
@@ -49,7 +50,7 @@ function AddPostBlock({textInput, dispatch}: AddPostBlockType) {
     )
 }
 
-function PostsBlock({profilePageData, dispatch}: PostsBlockPropsType) {
+function PostsBlock({profilePageData, onAddPost, onPostChange}: PostsBlockPropsType) {
 
     return (
         <div className={styles.postsBlock}>
@@ -57,7 +58,7 @@ function PostsBlock({profilePageData, dispatch}: PostsBlockPropsType) {
                 <div className={styles.postsBlock_header}>Посты</div>
                 {profilePageData.postsData.map(item => <Post key={item.id} text={item.text} like={item.like}/>)}
             </div>
-            <AddPostBlock dispatch={dispatch} textInput={profilePageData.textInput}/>
+            <AddPostBlock postChange={onPostChange} onAddPost={onAddPost} textInput={profilePageData.textInput}/>
         </div>
     )
 }

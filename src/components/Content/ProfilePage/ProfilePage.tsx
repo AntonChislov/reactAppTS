@@ -1,8 +1,8 @@
 import React from "react";
 import styles from './ProfilePage.module.css'
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
-import {PostsBlock} from "./PostsBlock/PostsBlock";
 import {ProfilePageDataType} from "../../../redux/state";
+import {PostsBlockContainer} from "./PostsBlock/PostsBlockContainer";
 
 interface ProfilePagePropsType {
     profilePageData: ProfilePageDataType
@@ -13,7 +13,7 @@ function ProfilePage({profilePageData, dispatch}: ProfilePagePropsType) {
     return (
         <div className={styles.profilePage}>
             <ProfileInfo/>
-            <PostsBlock profilePageData={profilePageData}
+            <PostsBlockContainer profilePageData={profilePageData}
                         dispatch={dispatch}/>
         </div>
     )

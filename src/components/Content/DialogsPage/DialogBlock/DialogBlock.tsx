@@ -1,20 +1,19 @@
 import React, {FC} from "react";
 import styles from './DialogsBlock.module.css'
-import {addMessageActionCreator} from "../../../../redux/dialogs-reducer";
 import {MessageType} from "../../../../redux/state";
 
 type AddMessageProps = {
-    dispatch: (action: any) => void
+    sendMessage: (text: string) => void
 }
 
-const SendMessageBlock:FC<AddMessageProps> = ({dispatch}) => {
+const SendMessageBlock: FC<AddMessageProps> = ({sendMessage}) => {
 
     const ref = React.createRef<HTMLInputElement>()
 
     const addMessage = () => {
 
         if (ref.current) {
-            dispatch(addMessageActionCreator(ref.current.value))
+            sendMessage(ref.current.value)
         }
     }
 
@@ -29,13 +28,13 @@ const SendMessageBlock:FC<AddMessageProps> = ({dispatch}) => {
 interface MessagesType {
     incomeMessagesData: Array<MessageType>
     outgoMessagesData: Array<MessageType>
-    dispatch: (action: any) => void
+    sendMessage: (text: string) => void
 }
 
-function DialogBlock({incomeMessagesData, outgoMessagesData, dispatch}: MessagesType) {
+function DialogBlock({incomeMessagesData, outgoMessagesData, sendMessage}: MessagesType) {
 
     const incomeMessageElement = incomeMessagesData.map(item => <div key={item.id}
-                                                                   className={styles.item1}>{item.message}</div>)
+                                                                     className={styles.item1}>{item.message}</div>)
     const outgoMessagesElement = outgoMessagesData.map(item => <div key={item.id}
                                                                     className={styles.item2}>{item.message}</div>)
 
@@ -53,7 +52,7 @@ function DialogBlock({incomeMessagesData, outgoMessagesData, dispatch}: Messages
             <div className={styles.messagesBlock}>
                 {messageList}
             </div>
-            <SendMessageBlock dispatch={dispatch}/>
+            <SendMessageBlock sendMessage={sendMessage}/>
         </div>
     )
 }
