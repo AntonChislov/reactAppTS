@@ -9,12 +9,11 @@ interface ProfilePagePropsType {
     dispatch: (action: any) => void
 }
 
-function ProfilePage({profilePageData, dispatch}: ProfilePagePropsType) {
+function ProfilePage() {
     return (
         <div className={styles.profilePage}>
             <ProfileInfo/>
-            <PostsBlockContainer profilePageData={profilePageData}
-                        dispatch={dispatch}/>
+            <PostsBlockContainer/>
         </div>
     )
 }

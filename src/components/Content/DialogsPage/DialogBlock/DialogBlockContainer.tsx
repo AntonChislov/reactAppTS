@@ -1,23 +1,33 @@
-import React from "react";
-import {addMessageActionCreator} from "../../../../redux/dialogs-reducer";
-import {MessageType} from "../../../../redux/state";
-import {DialogBlock} from "./DialogBlock";
+import React from 'react';
+import {Dispatch} from 'redux';
+import {addMessageActionCreator} from '../../../../redux/dialogs-reducer';
+import {MessageType} from '../../../../redux/state';
+import {DialogBlock} from './DialogBlock';
+import {connect} from 'react-redux';
+import {AppStateType} from '../../../../redux/redux-store';
 
-interface MessagesType {
+type MapStateType = {
     incomeMessagesData: Array<MessageType>
     outgoMessagesData: Array<MessageType>
-    dispatch: (action: any) => void
 }
 
-export function DialogBlockContainer({incomeMessagesData, outgoMessagesData, dispatch}: MessagesType) {
+type MapDispatchType = {
+    sendMessage: (text: string) => void
+}
 
-    const addMessage = (text: string) => {
-        if (text) {
+const mapStateToProps = (state: AppStateType): MapStateType => {
+    return {
+        incomeMessagesData: state.dialogsPage.incomeMessagesData,
+        outgoMessagesData: state.dialogsPage.outgoMessagesData
+    }
+}
+
+const mapDispatchToProps = (dispatch: Dispatch): MapDispatchType => {
+    return {
+        sendMessage: (text: string) => {
             dispatch(addMessageActionCreator(text))
         }
     }
-
-    return <DialogBlock incomeMessagesData={incomeMessagesData} outgoMessagesData={outgoMessagesData}
-                        sendMessage={addMessage}/>
 }
 
+export const DialogBlockContainer = connect(mapStateToProps, mapDispatchToProps)(DialogBlock)

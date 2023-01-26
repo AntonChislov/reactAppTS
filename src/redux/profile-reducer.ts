@@ -1,7 +1,10 @@
-import {ProfilePageDataType} from "./state";
-
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const ADD_POST = 'ADD-POST'
+
+export type ProfilePageDataType = {
+    postsData: Array<{ id: number, text: string, like: number }>
+    textInput: string
+}
 
 const initialState: ProfilePageDataType = {
     postsData: [
@@ -13,20 +16,12 @@ const initialState: ProfilePageDataType = {
     textInput: ''
 }
 
-export const profileReducer = (state = initialState, action: {type: string, currentValueInput: any}) => {
+export const profileReducer = (state = initialState, action: { type: string, currentValueInput: any }): ProfilePageDataType => {
     switch (action.type) {
         case ADD_POST:
-            let newPost = {
-                id: 5,
-                text: state.textInput,
-                like: 0
-            }
-            state.postsData.push(newPost)
-            state.textInput = ''
-            return state
+            return {...state, postsData: [...state.postsData, {id: 5, text: state.textInput, like: 0}], textInput: ''}
         case UPDATE_NEW_POST_TEXT:
-            state.textInput = action.currentValueInput
-            return state
+            return {...state, textInput: action.currentValueInput}
         default:
             return state
     }

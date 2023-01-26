@@ -1,24 +1,38 @@
-import React from "react";
-import {addPostButtonActionCreator, onPostChangeActionCreator} from "../../../../redux/profile-reducer";
-import {ProfilePageDataType} from '../../../../redux/state'
-import {PostsBlock} from "./PostsBlock";
+import React from 'react';
+import {Dispatch} from 'redux';
+import {
+    addPostButtonActionCreator,
+    onPostChangeActionCreator,
+    ProfilePageDataType
+} from '../../../../redux/profile-reducer';
+import {PostsBlock} from './PostsBlock';
+import {connect} from 'react-redux';
+import {AppStateType} from '../../../../redux/redux-store';
 
-interface PostsBlockPropsType {
+type MapStateType = {
     profilePageData: ProfilePageDataType
-    dispatch: (action: any) => void
 }
 
-function PostsBlockContainer({profilePageData, dispatch}: PostsBlockPropsType) {
-
-    const addPostButton = () => {
-        dispatch(addPostButtonActionCreator())
-    }
-
-    const onPostChange = (text: string) => {
-        if(text) dispatch(onPostChangeActionCreator(text))
-    }
-
-    return <PostsBlock profilePageData={profilePageData} onAddPost={addPostButton} onPostChange={onPostChange}/>
+type MapDispatchType = {
+    onAddPost: () => void
+    onPostChange: (text: string) => void
 }
 
-export {PostsBlockContainer}
+const mapStateToProps = (state: AppStateType): MapStateType => {
+    return {
+        profilePageData: state.profilePage
+    }
+}
+
+const mapDispatchToProps = (dispatch: Dispatch): MapDispatchType => {
+    return {
+        onAddPost: () => {
+            dispatch(addPostButtonActionCreator())
+        },
+        onPostChange: (text: string) => {
+            dispatch(onPostChangeActionCreator(text))
+        }
+    }
+}
+
+export const PostsBlockContainer = connect(mapStateToProps, mapDispatchToProps)(PostsBlock)

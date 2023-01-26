@@ -9,10 +9,8 @@ function Content(props: AppPropsType) {
     return (
         <div className={styles.content}>
             <Routes>
-                <Route path='/' element={<ProfilePage profilePageData={props.profilePageData}
-                                                      dispatch={props.dispatch}/>}/>
-                <Route path='dialogs/*' element={<DialogsPage dialogsPageData={props.dialogsPageData}
-                                                              dispatch={props.dispatch}/>}/>
+                <Route path='/' element={<ProfilePage/>}/>
+                <Route path='dialogs/*' element={<DialogsPage dialogsPageData={props.dialogsPageData}/>}/>
             </Routes>
         </div>
     )

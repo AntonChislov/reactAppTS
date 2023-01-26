@@ -1,8 +1,17 @@
-import {DialogsPageDataType} from "./state";
-
 const ADD_MESSAGE = 'ADD_MESSAGE'
 
-const initialState: DialogsPageDataType = {
+type MessageType = {
+    id: number
+    message: string
+}
+
+type InitialStateType = {
+    incomeMessagesData: MessageType[]
+    outgoMessagesData: MessageType[]
+    dialogsData: Array<{id: number, dialogs: string}>
+}
+
+const initialState = {
     incomeMessagesData: [
         {id: 4, message: 'здаров'},
         {id: 2, message: 'все круто'},
@@ -21,12 +30,10 @@ const initialState: DialogsPageDataType = {
     ]
 }
 
-export const dialogsReducer = (state = initialState, action: {type: string, text: string}) => {
+export const dialogsReducer = (state: InitialStateType = initialState, action: {type: string, text: string}): InitialStateType => {
     switch (action.type) {
         case ADD_MESSAGE:
-            let newMessage = {id: 34, message: action.text}
-            state.outgoMessagesData.push(newMessage)
-            return state
+            return {...state, outgoMessagesData: [...state.outgoMessagesData, {id: 34, message: action.text}]}
         default:
             return state
     }
