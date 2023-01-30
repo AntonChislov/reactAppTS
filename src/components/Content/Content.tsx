@@ -11,7 +11,7 @@ function Content(props: AppPropsType) {
         <div className={styles.content}>
             <Routes>
                 <Route path="/" element={<ProfilePage/>}/>
-                <Route path="dialogs/*" element={<DialogsPage dialogsPageData={props.dialogsPageData}/>}/>
+                <Route path="dialogs/*" element={<DialogsPage/>}/>
                 <Route path="users/*" element={<UsersPageContainer />}/>
             </Routes>
         </div>

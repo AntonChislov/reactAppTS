@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useEffect} from 'react';
 import {UserType} from '../../../redux/users-reducer';
 
 type UsersPagePropsType = {
@@ -9,9 +10,20 @@ type UsersPagePropsType = {
 }
 
 export const UsersPage = ({users, follow, unfollow, setUsers}: UsersPagePropsType) => {
+    const getUsers = () => {
+        if (users.length === 0) {
+            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(res => {
+                setUsers(res.data.items)
+            })
+        }
+    }
+
     return (
         <div>
-            {users.map(u => <div><button onClick={() => follow(u.id)}>follow</button>{u.fullName}</div>)}
+            <button onClick={getUsers}>getUsers</button>
+            {users.map(u => <div>
+                <button onClick={() => follow(u.id)}>follow</button>
+                {u.name}</div>)}
         </div>
     )
 }

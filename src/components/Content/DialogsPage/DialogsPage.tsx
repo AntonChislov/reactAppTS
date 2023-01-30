@@ -4,16 +4,14 @@ import {DialogBlock} from "./DialogBlock/DialogBlock";
 import {DialogsList} from "./DialogsList/DialogsList";
 import {DialogsPageDataType, DialogType, MessageType} from "../../../redux/state";
 import {DialogBlockContainer} from "./DialogBlock/DialogBlockContainer";
+import {DialogsListContainer} from './DialogsList/DialogsListContainer';
 
-interface DialogsPagePropsType {
-    dialogsPageData: DialogsPageDataType
-}
 
-function DialogsPage({dialogsPageData}: DialogsPagePropsType) {
+function DialogsPage() {
     return (
         <div className={styles.dialogsPage}>
             <DialogBlockContainer/>
-            <DialogsList dialogsData={dialogsPageData.dialogsData}/>
+            <DialogsListContainer/>
         </div>
     )
 }

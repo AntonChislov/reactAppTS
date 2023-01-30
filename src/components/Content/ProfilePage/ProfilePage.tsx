@@ -4,12 +4,7 @@ import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {ProfilePageDataType} from "../../../redux/state";
 import {PostsBlockContainer} from "./PostsBlock/PostsBlockContainer";
 
-interface ProfilePagePropsType {
-    profilePageData: ProfilePageDataType
-    dispatch: (action: any) => void
-}
-
-function ProfilePage() {
+export const ProfilePage = () => {
     return (
         <div className={styles.profilePage}>
             <ProfileInfo/>
@@ -17,5 +12,3 @@ function ProfilePage() {
         </div>
     )
 }
-
-export {ProfilePage}

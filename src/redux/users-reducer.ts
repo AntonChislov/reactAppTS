@@ -16,35 +16,13 @@ type SetUsersActionType = {
 export type UserType = {
     id: number
     followed: boolean
-    fullName: string
+    name: string
     status: string
     location: { city: string, country: string }
 }
 
 const initialState = {
-    users: [
-        {
-            id: 1,
-            followed: false,
-            fullName: 'Anton',
-            status: 'I am a boss',
-            location: {city: 'Krasnodar', country: 'Russian'}
-        },
-        {
-            id: 2,
-            followed: false,
-            fullName: 'Anatoliy',
-            status: 'I am a boss',
-            location: {city: 'Krasnodar', country: 'Russian'}
-        },
-        {
-            id: 3,
-            followed: false,
-            fullName: 'Victor',
-            status: 'I am a boss',
-            location: {city: 'Krasnodar', country: 'Russian'}
-        }
-    ]
+    users: []
 }
 
 type InitialStateType = {
