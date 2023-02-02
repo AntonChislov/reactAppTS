@@ -1,29 +1,35 @@
 import axios from 'axios';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {UserType} from '../../../redux/users-reducer';
+import {AppStateType} from '../../../redux/redux-store';
 
-type UsersPagePropsType = {
+type UsersPropsType = {
     users: UserType[]
-    follow: (userId: number) => void
+    setUsers: (users: UserType[]) => void
     unfollow: (userId: number) => void
-    setUsers: (users: Array<UserType>) => void
+    follow: (userId: number) => void
 }
 
-export const UsersPage = ({users, follow, unfollow, setUsers}: UsersPagePropsType) => {
-    const getUsers = () => {
-        if (users.length === 0) {
+export class UsersPage extends React.Component<UsersPropsType, AppStateType> {
+
+    componentDidMount() {
+        if (this.props.users.length === 0) {
             axios.get('https://social-network.samuraijs.com/api/1.0/users').then(res => {
-                setUsers(res.data.items)
+                this.props.setUsers(res.data.items)
             })
         }
     }
 
-    return (
-        <div>
-            <button onClick={getUsers}>getUsers</button>
-            {users.map(u => <div>
-                <button onClick={() => follow(u.id)}>follow</button>
-                {u.name}</div>)}
-        </div>
-    )
+    render() {
+        return (
+            <div>
+                {this.props.users.map(u => <div key={u.id}>
+                    {u.followed
+                        ? <button onClick={() => this.props.unfollow(u.id)}>unfollow</button>
+                        : <button onClick={() => this.props.follow(u.id)}>follow</button>}
+                    {u.name}</div>)}
+            </div>
+        )
+    }
 }
+

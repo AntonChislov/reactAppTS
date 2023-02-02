@@ -3,10 +3,9 @@ import styles from './Content.module.css'
 import {Routes, Route} from 'react-router-dom';
 import {ProfilePage} from './ProfilePage/ProfilePage';
 import {DialogsPage} from './DialogsPage/DialogsPage';
-import {AppPropsType} from '../../App';
 import {UsersPageContainer} from './UsersPage/UsersPageContainer';
 
-function Content(props: AppPropsType) {
+function Content() {
     return (
         <div className={styles.content}>
             <Routes>

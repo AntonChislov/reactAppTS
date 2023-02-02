@@ -1,29 +1,8 @@
 import React, {FC} from "react";
 import styles from './DialogsBlock.module.css'
 import {MessageType} from "../../../../redux/state";
-
-type AddMessageProps = {
-    sendMessage: (text: string) => void
-}
-
-const SendMessageBlock: FC<AddMessageProps> = ({sendMessage}) => {
-
-    const ref = React.createRef<HTMLInputElement>()
-
-    const addMessage = () => {
-
-        if (ref.current) {
-            sendMessage(ref.current.value)
-        }
-    }
-
-    return (
-        <div className={styles.sendMessagesBlock}>
-            <input ref={ref} placeholder={'введи сообщение'}/>
-            <button onClick={addMessage}>отправить</button>
-        </div>
-    )
-}
+import {SendMessageBlock} from './SendMessageBlock/SendMessageBlock';
+import {AppStateType} from '../../../../redux/redux-store';
 
 interface MessagesType {
     incomeMessagesData: Array<MessageType>
@@ -31,30 +10,29 @@ interface MessagesType {
     sendMessage: (text: string) => void
 }
 
-function DialogBlock({incomeMessagesData, outgoMessagesData, sendMessage}: MessagesType) {
+export class DialogBlock extends React.Component<MessagesType, AppStateType>{
 
-    const incomeMessageElement = incomeMessagesData.map(item => <div key={item.id}
-                                                                     className={styles.item1}>{item.message}</div>)
-    const outgoMessagesElement = outgoMessagesData.map(item => <div key={item.id}
-                                                                    className={styles.item2}>{item.message}</div>)
+    render() {
 
-    const messageList = []
+        const incomeMessageElement = this.props.incomeMessagesData.map(item => <div key={item.id}
+                                                                         className={styles.item1}>{item.message}</div>)
+        const outgoMessagesElement = this.props.outgoMessagesData.map(item => <div key={item.id}
+                                                                        className={styles.item2}>{item.message}</div>)
 
-    const largerArray = incomeMessageElement.length > outgoMessagesElement.length ? incomeMessageElement.length : outgoMessagesElement.length
+        const messageList = []
 
-    for (let i = 0; i < largerArray; i++) {
-        messageList.push(outgoMessagesElement[i])
-        messageList.push(incomeMessageElement[i])
-    }
+        const largerArray = incomeMessageElement.length > outgoMessagesElement.length ? incomeMessageElement.length : outgoMessagesElement.length
 
-    return (
-        <div className={styles.dialogsBlock}>
+        for (let i = 0; i < largerArray; i++) {
+            messageList.push(outgoMessagesElement[i])
+            messageList.push(incomeMessageElement[i])
+        }
+
+        return <div className={styles.dialogsBlock}>
             <div className={styles.messagesBlock}>
                 {messageList}
             </div>
-            <SendMessageBlock sendMessage={sendMessage}/>
+            <SendMessageBlock sendMessage={this.props.sendMessage}/>
         </div>
-    )
+    }
 }
-
-export {DialogBlock}
