@@ -1,14 +1,15 @@
-import {combineReducers, legacy_createStore } from "redux";
-import {dialogsReducer} from "./dialogs-reducer";
-import {profileReducer} from "./profile-reducer";
-import {usersReducer} from './users-reducer';
+import {configureStore} from '@reduxjs/toolkit';
+import {profileReducer} from './profileSlice';
+import {dialogsReducer} from './dialogSlice';
+import {usersReducer} from './usersSlice';
 
-const rootReducer = combineReducers({
-    dialogsPage: dialogsReducer,
-    profilePage: profileReducer,
-    usersPage: usersReducer
+export const store = configureStore({
+    reducer: {
+        dialogsPage: dialogsReducer,
+        profilePage: profileReducer,
+        usersPage: usersReducer
+    }
 })
 
-export type AppStateType = ReturnType<typeof rootReducer>
-
-export const store = legacy_createStore(rootReducer)
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

@@ -1,4 +1,5 @@
-const ADD_MESSAGE = 'ADD_MESSAGE'
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {profileSlice} from './profileSlice';
 
 type MessageType = {
     id: number
@@ -11,7 +12,7 @@ type InitialStateType = {
     dialogsData: Array<{id: number, dialogs: string}>
 }
 
-const initialState = {
+const initialState: InitialStateType = {
     incomeMessagesData: [
         {id: 4, message: 'здаров'},
         {id: 2, message: 'все круто'},
@@ -30,15 +31,18 @@ const initialState = {
     ]
 }
 
- const dialogsReducer = (state: InitialStateType = initialState, action: {type: string, text: string}): InitialStateType => {
-    switch (action.type) {
-        case ADD_MESSAGE:
-            return {...state, outgoMessagesData: [...state.outgoMessagesData, {id: 34, message: action.text}]}
-        default:
-            return state
+export const dialogsSlice = createSlice({
+    name: 'dialogsPage',
+    initialState,
+    reducers: {
+        addMessage: (state, action: PayloadAction<string>) => {
+            state.outgoMessagesData = [...state.outgoMessagesData, {id: 34, message: action.payload}]
+        }
     }
-}
+})
 
-export const addMessageActionCreator = (text: string) => {
-    return {type: ADD_MESSAGE, text}
-}
+export const {addMessage} = dialogsSlice.actions
+
+export const selectDialogs = (state: InitialStateType) => state
+
+export const dialogsReducer =  dialogsSlice.reducer

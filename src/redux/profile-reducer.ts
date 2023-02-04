@@ -16,7 +16,7 @@ const initialState: ProfilePageDataType = {
     textInput: ''
 }
 
-export const profileReducer = (state = initialState, action: { type: string, currentValueInput: any }): ProfilePageDataType => {
+ const profileReducer = (state = initialState, action: { type: string, currentValueInput: any }): ProfilePageDataType => {
     switch (action.type) {
         case ADD_POST:
             return {...state, postsData: [...state.postsData, {id: 5, text: state.textInput, like: 0}], textInput: ''}
