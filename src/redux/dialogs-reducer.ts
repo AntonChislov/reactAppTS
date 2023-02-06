@@ -30,7 +30,7 @@ const initialState = {
     ]
 }
 
- const dialogsReducer = (state: InitialStateType = initialState, action: {type: string, text: string}): InitialStateType => {
+export const dialogsReducer = (state: InitialStateType = initialState, action: {type: string, text: string}): InitialStateType => {
     switch (action.type) {
         case ADD_MESSAGE:
             return {...state, outgoMessagesData: [...state.outgoMessagesData, {id: 34, message: action.text}]}

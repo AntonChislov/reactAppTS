@@ -31,7 +31,7 @@ type InitialStateType = {
 
 type ActionType = SetUsersActionType | FollowActionType | UnFollowActionType
 
- const usersReducer = (state: InitialStateType = initialState, action: ActionType): InitialStateType => {
+export const usersReducer = (state: InitialStateType = initialState, action: ActionType): InitialStateType => {
     switch (action.type) {
         case 'FOLLOW': {
             return {
