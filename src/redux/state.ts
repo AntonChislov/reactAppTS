@@ -76,7 +76,7 @@ export const store = {
         renderAll = observer
     },
     dispatch(action: ActionType) {
-        profileReducer(this._state.profilePageData, action)
+        // profileReducer(this._state.profilePageData, action)
         dialogsReducer(this._state.dialogsPageData, action)
             renderAll()
     }

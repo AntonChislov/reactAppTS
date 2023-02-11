@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, useState} from 'react';
 import styles from './DialogsBlock.module.css'
 import {MessageType} from "../../../../redux/state";
 
@@ -8,18 +8,19 @@ type AddMessageProps = {
 
 const SendMessageBlock: FC<AddMessageProps> = ({sendMessage}) => {
 
-    const ref = React.createRef<HTMLInputElement>()
+
+    const [value, setValue] = useState('')
 
     const addMessage = () => {
-
-        if (ref.current) {
-            sendMessage(ref.current.value)
+        if (value) {
+            sendMessage(value)
+            setValue('')
         }
     }
 
     return (
         <div className={styles.sendMessagesBlock}>
-            <input ref={ref} placeholder={'введи сообщение'}/>
+            <input value={value} onChange={(e) => setValue(e.currentTarget.value)}placeholder={'введи сообщение'}/>
             <button onClick={addMessage}>отправить</button>
         </div>
     )

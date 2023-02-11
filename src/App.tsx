@@ -4,23 +4,14 @@ import {Header} from "./Components/Header/Header";
 import {Navbar} from "./Components/Navbar/Navbar";
 import {Content} from "./Components/Content/Content";
 import {Footer} from "./Components/Footer/Footer";
-import {DialogsPageDataType, ProfilePageDataType} from './redux/state';
 
-export interface AppPropsType {
-    dialogsPageData: DialogsPageDataType
-    profilePageData: ProfilePageDataType
-    dispatch: (action: any) => void
-}
-
-function App(props: AppPropsType) {
+export const App = () => {
     return (
         <div className="App-wrapper">
             <Header/>
             <Navbar/>
-            <Content {...props}/>
+            <Content/>
             <Footer/>
         </div>
     );
 }
-
-export {App};

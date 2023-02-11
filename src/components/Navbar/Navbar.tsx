@@ -6,7 +6,7 @@ function Navbar() {
     return (
         <div className={styles.navbar}>
             <div className={styles.navbar_block}>
-                <div><NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to='/'>Профиль</NavLink></div>
+                <div><NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to='/profile'>Профиль</NavLink></div>
                 <div><NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to='dialogs'>Сообщения</NavLink></div>
                 <div><NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to='users'>Пользователи</NavLink></div>
                 <div><NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to='friends'>Друзья</NavLink></div>
