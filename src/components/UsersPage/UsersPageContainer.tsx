@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {AppStateType} from '../../../redux/redux-store';
+import {AppStateType} from '../../redux/redux-store';
 import {
     follow,
     setCurrentPage, setIsFetching,
@@ -8,10 +8,10 @@ import {
     setUsers,
     unfollow,
     UserType
-} from '../../../redux/users-reducer';
+} from '../../redux/users-reducer';
 import axios from 'axios';
 import {UsersPage} from './UsersPage';
-import {Preloader} from '../../../Preloader/Preloader';
+import {Preloader} from '../../Preloader/Preloader';
 
 type MapStateType = {
     users: UserType[]
@@ -44,6 +44,7 @@ class UsersPageContainer extends React.Component<UsersPagePropsType, AppStateTyp
                 this.props.setIsFetching(false)
                 this.props.setTotalUsersCount(res.data.totalCount)
             })
+                .catch(err => console.log(err))
         }
     }
 

@@ -1,15 +1,23 @@
 .App-wrapper {
     background: rgba(32, 32, 33, 1);
-    display: grid;
-    grid-template-rows: 100px 1fr 40px;
-    grid-template-columns: 2fr 10fr;
-    grid-template-areas:
-            'header header'
-            'navbar content'
-            'footer footer';
-    padding-left: 200px;
-    padding-right: 200px;
-    color: aliceblue;
-    gap: 15px;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    /*display: grid;*/
+    /*grid-template-rows: 100px 1fr 40px;*/
+    /*grid-template-columns: 2fr 10fr;*/
+    /*grid-template-areas:*/
+    /*        'header header'*/
+    /*        'navbar content'*/
+    /*        'footer footer';*/
+    /*padding-left: 200px;*/
+    /*padding-right: 200px;*/
+    /*color: aliceblue;*/
+    /*gap: 15px;*/
+    /*height: 100vh;*/
+}
+
+.navAndContent {
+    display: flex;
 }

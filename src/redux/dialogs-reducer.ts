@@ -1,9 +1,25 @@
 const ADD_MESSAGE = 'ADD_MESSAGE'
 
-type MessageType = {
-    id: number
-    message: string
+export type MessageUserType = {
+    text: string
+    time: string
 }
+
+export type UserType = {
+    avatar: any
+    name: string
+}
+
+export type MessageType = {
+    id: number
+    user: UserType
+    message: MessageUserType
+}
+
+// type MessageType = {
+//     id: number
+//     message: string
+// }
 
 type InitialStateType = {
     incomeMessagesData: MessageType[]
@@ -13,13 +29,13 @@ type InitialStateType = {
 
 const initialState = {
     incomeMessagesData: [
-        {id: 4, message: 'здаров'},
-        {id: 2, message: 'все круто'},
+        {id: 4, user: {avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSYZnTGTG3jPXtlSuI8qX-YxgP9JmPN7ZUyMhtVMBTFA&s', name: 'Лена'}, message: {text: 'здаров', time: '22:34'}},
+        {id: 2, user: {avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSYZnTGTG3jPXtlSuI8qX-YxgP9JmPN7ZUyMhtVMBTFA&s', name: 'Лена'}, message: {text: 'все круто', time: '21:34'}},
     ],
     outgoMessagesData: [
-        {id: 5, message: 'привет'},
-        {id: 3, message: 'как дела?'},
-        {id: 1, message: 'харош'},
+        {id: 5, user: {avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQB7CGFPsZjPgpv2g8UQ8LvaKCzDt_kOWbVbdW7GI&s', name: 'Антон'}, message: {text: 'привет', time: '21:33'}},
+        {id: 3, user: {avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQB7CGFPsZjPgpv2g8UQ8LvaKCzDt_kOWbVbdW7GI&s', name: 'Антон'}, message: {text: 'как дела?', time: '21:30'}},
+        {id: 1, user: {avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQB7CGFPsZjPgpv2g8UQ8LvaKCzDt_kOWbVbdW7GI&s', name: 'Антон'}, message: {text: 'харош', time: '21:43'}},
     ],
     dialogsData: [
         {id: 1, dialogs: 'Анжелика'},
@@ -33,7 +49,13 @@ const initialState = {
 export const dialogsReducer = (state: InitialStateType = initialState, action: {type: string, text: string}): InitialStateType => {
     switch (action.type) {
         case ADD_MESSAGE:
-            return {...state, outgoMessagesData: [...state.outgoMessagesData, {id: 34, message: action.text}]}
+            return {
+                ...state,
+                outgoMessagesData: [
+                    ...state.outgoMessagesData,
+                    {id: 43, user: {avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQB7CGFPsZjPgpv2g8UQ8LvaKCzDt_kOWbVbdW7GI&s', name: 'Антон'}, message: {text: action.text, time: '33:87'}}
+                ]
+            }
         default:
             return state
     }

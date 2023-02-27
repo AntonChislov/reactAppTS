@@ -1,10 +1,9 @@
 import React from 'react';
 import {Dispatch} from 'redux';
-import {addMessageActionCreator} from '../../../../redux/dialogs-reducer';
-import {MessageType} from '../../../../redux/state';
+import {addMessageActionCreator, MessageType} from '../../../redux/dialogs-reducer';
 import {DialogBlock} from './DialogBlock';
 import {connect} from 'react-redux';
-import {AppStateType} from '../../../../redux/redux-store';
+import {AppStateType} from '../../../redux/redux-store';
 
 type MapStateType = {
     incomeMessagesData: Array<MessageType>

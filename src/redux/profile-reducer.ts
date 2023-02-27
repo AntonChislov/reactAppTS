@@ -23,7 +23,7 @@ export type UserProfileData = {
     lookingForAJob: boolean
     lookingForAJobDescription: string | null
     fullName: string
-    userId: number
+    userId: string
     photos: {
         small: string | null
         large: string | null
@@ -67,7 +67,7 @@ const initialState: ProfilePageDataType = {
         lookingForAJob: true,
         lookingForAJobDescription: null,
         fullName: 'AntonChislov',
-        userId: 28987,
+        userId: '27589',
         photos: {
             small: null,
             large: null

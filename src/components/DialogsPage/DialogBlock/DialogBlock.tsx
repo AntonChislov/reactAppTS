@@ -1,6 +1,10 @@
 import React, {FC, useState} from 'react';
 import styles from './DialogsBlock.module.css'
-import {MessageType} from "../../../../redux/state";
+// import {MessageType} from "../../../redux/state";
+import Message from './Message/Message';
+import {MessageType} from '../../../redux/dialogs-reducer';
+import FriendMessage from './FriendMessage/FriendMessage';
+// import {MessageType} from '../../../redux/state';
 
 type AddMessageProps = {
     sendMessage: (text: string) => void
@@ -34,10 +38,8 @@ interface MessagesType {
 
 function DialogBlock({incomeMessagesData, outgoMessagesData, sendMessage}: MessagesType) {
 
-    const incomeMessageElement = incomeMessagesData.map(item => <div key={item.id}
-                                                                     className={styles.item1}>{item.message}</div>)
-    const outgoMessagesElement = outgoMessagesData.map(item => <div key={item.id}
-                                                                    className={styles.item2}>{item.message}</div>)
+    const incomeMessageElement = incomeMessagesData.map(item => <FriendMessage message={item} key={item.id}/>)
+    const outgoMessagesElement = outgoMessagesData.map(item => <Message message={item} key={item.id}/>)
 
     const messageList = []
 

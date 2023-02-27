@@ -1,19 +1,17 @@
-import React from "react";
+import React from 'react';
 import styles from './Navbar.module.css';
-import { NavLink } from "react-router-dom";
+import {NavLink} from 'react-router-dom';
 
 function Navbar() {
     return (
         <div className={styles.navbar}>
-            <div className={styles.navbar_block}>
-                <div><NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to='/profile'>Профиль</NavLink></div>
-                <div><NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to='dialogs'>Сообщения</NavLink></div>
-                <div><NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to='users'>Пользователи</NavLink></div>
-                <div><NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to='friends'>Друзья</NavLink></div>
-                <div><NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to='news'>Новости</NavLink></div>
-                <div><NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to='music'>Музыка</NavLink></div>
-                <div><NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to='settings'>Настройки</NavLink></div>
-            </div>
+            <NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to="/profile">Профиль</NavLink>
+            <NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to="dialogs">Сообщения</NavLink>
+            <NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to="users">Пользователи</NavLink>
+            <NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to="friends">Друзья</NavLink>
+            <NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to="news">Новости</NavLink>
+            <NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to="music">Музыка</NavLink>
+            <NavLink style={({isActive}) => ({color: isActive ? 'red' : ''})} to="settings">Настройки</NavLink>
         </div>
     )
 }

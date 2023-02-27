@@ -1,0 +1,15 @@
+.dialogsList {
+    padding: 10px;
+}
+
+/*.dialogsList div {*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+.dialogsList_header {
+    color: burlywood;
+}
+
+.dialogsList a {
+    text-decoration: none;
+}

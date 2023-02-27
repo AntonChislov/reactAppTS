@@ -3,14 +3,14 @@ import styles from './ProfilePage.module.css'
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {PostsBlockContainer} from "./PostsBlock/PostsBlockContainer";
 import {connect} from 'react-redux';
-import axios from 'axios';
-import {AppStateType} from '../../../redux/redux-store';
-import {setUserProfile, UserProfileData} from '../../../redux/profile-reducer';
+import {AppStateType} from '../../redux/redux-store';
+import {setUserProfile, UserProfileData} from '../../redux/profile-reducer';
 import {
     useLocation,
     useNavigate,
     useParams,
 } from 'react-router-dom';
+import {userAPI} from '../../api/api';
 
 type MapStateToPropsType = {
     profile: UserProfileData
@@ -39,14 +39,15 @@ function withRouter(Component: any) {
 class ProfilePage extends React.Component<ProfilePageType, AppStateType> {
     componentDidMount() {
         let userId: string
-        if (!this.props.router) {
-            userId = '2'
+        if (!this.props.router?.params.userId) {
+            userId = this.props.profile.userId
         } else {
             userId = this.props.router.params.userId
         }
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`).then(res => {
+        userAPI.getUser(userId)
+            .then(res => {
             this.props.setUserProfile(res.data)
-        })
+        }).catch(error => console.warn(error))
     }
 
     render() {

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './PostsBlock.module.css'
-import {ProfilePageDataType} from '../../../../redux/state'
+import {ProfilePageDataType} from '../../../redux/state'
 
 interface PostPropsType {
     text: string

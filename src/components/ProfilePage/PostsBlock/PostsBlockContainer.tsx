@@ -4,10 +4,10 @@ import {
     addPostButtonActionCreator,
     onPostChangeActionCreator,
     ProfilePageDataType
-} from '../../../../redux/profile-reducer';
+} from '../../../redux/profile-reducer';
 import {PostsBlock} from './PostsBlock';
 import {connect} from 'react-redux';
-import {AppStateType} from '../../../../redux/redux-store';
+import {AppStateType} from '../../../redux/redux-store';
 
 type MapStateType = {
     profilePageData: ProfilePageDataType

@@ -1,5 +1,5 @@
 import {profileReducer} from "./profile-reducer";
-import {dialogsReducer} from "./dialogs-reducer";
+import {dialogsReducer, MessageUserType, UserType} from './dialogs-reducer';
 
 
 let renderAll = () => {
@@ -14,7 +14,8 @@ export interface PostsType {
 
 export interface MessageType {
     id: number
-    message: string
+    user: UserType
+    message: MessageUserType
 }
 
 export interface DialogType {
@@ -77,7 +78,7 @@ export const store = {
     },
     dispatch(action: ActionType) {
         // profileReducer(this._state.profilePageData, action)
-        dialogsReducer(this._state.dialogsPageData, action)
+        // dialogsReducer(this._state.dialogsPageData, action)
             renderAll()
     }
 }

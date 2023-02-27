@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./DialogsList.module.css";
-import {DialogType} from "../../../../redux/state";
+import {DialogType} from "../../../redux/state";
 
 interface DialogsListType {
     dialogsData: Array<DialogType>
